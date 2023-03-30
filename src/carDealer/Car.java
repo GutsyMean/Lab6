@@ -25,11 +25,11 @@ public abstract class Car {
 		return totalAssets;
 	}
 	public static void addTotalAssets(double asset) {
-		totalAssets = asset;
+		totalAssets += asset;
 	}
 	@Override
 	public String toString() {
-		String str = "Vehicle ID: " + id +
+		String str = "\nVehicle ID: " + id +
 				"\nModel Year: " + year + 
 				"\nBase Price: " + basePrice +
 				"\nCommission: " + commission;

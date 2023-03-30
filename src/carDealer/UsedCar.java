@@ -20,8 +20,8 @@ public class UsedCar extends Car {
 		usedCarCount++;
 	}
 	public double computeTotal() {
-		double totalCost = super.basePrice - mileage * rateOfDepreciation +
-				super.commission;
+		double totalCost = (super.basePrice - (mileage * rateOfDepreciation) +
+				super.commission);
 		return totalCost;
 	}
 	public static int getNumOfUsedCar() {
@@ -30,11 +30,10 @@ public class UsedCar extends Car {
 	public static double getTotalAssets() {
 		return totalAssets;
 	}
-	
 	@Override
 	public void updateAssets() {
-		// TODO Auto-generated method stub
-		
+		totalAssets += computeTotal();
+		super.addTotalAssets(computeTotal());
 	}
 	@Override
 	public double getMileage() {
@@ -51,7 +50,8 @@ public class UsedCar extends Car {
 	}
 	@Override
 	public String toString() {
-		return super.toString() + "Mileage: " + mileage +
+		return super.toString() + 
+				"\nMileage: " + mileage +
 				"\nTotal Cost: " + computeTotal() +
 				"\nDeal Result: " + goodBusiness();
 	}

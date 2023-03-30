@@ -20,12 +20,13 @@ public class NewCar extends Car {
 		numOfNewcar++;
 	}
 	public double computeTotal() {
-		double totalCost = (basePrice + optionCost + commission) - rebate;
+		double totalCost = (super.basePrice + optionCost + commission) - rebate;
 		return totalCost;
 	}
+	@Override
 	public String goodBusiness() {
 		String str;
-		if (commission > (basePrice*0.08))
+		if (commission > (super.basePrice*0.08))
 			str = "Good";
 		else
 			str = "Bad";
@@ -39,9 +40,10 @@ public class NewCar extends Car {
 	}
 	@Override
 	public void updateAssets() {
-		totalAssets = computeTotal();
-		super.addTotalAssets(totalAssets);
+		totalAssets += computeTotal();
+		super.addTotalAssets(computeTotal());
 	}
+	
 	@Override
 	public double getMileage() {
 		return 0;
